@@ -22,8 +22,8 @@ export default function App() {
     reasoning_model: string;
   }>({
     apiUrl: import.meta.env.DEV
-      ? "http://localhost:2024"
-      : "http://localhost:8123",
+      ? `${window.location.protocol}//${window.location.hostname}:2024`
+      : `${window.location.protocol}//${window.location.hostname}:2024`,
     assistantId: "agent",
     messagesKey: "messages",
     onFinish: (event: any) => {
