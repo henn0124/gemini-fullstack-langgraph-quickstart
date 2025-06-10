@@ -1,0 +1,75 @@
+tarting frontend development server...
+> frontend@0.0.0 dev
+> vite
+
+
+  VITE v6.3.4  ready in 539 ms
+
+  ➜  Local:   http://localhost:5173/app/
+  ➜  Network: use --host to expose
+INFO:langgraph_api.cli:
+
+        Welcome to
+
+╦  ┌─┐┌┐┌┌─┐╔═╗┬─┐┌─┐┌─┐┬ ┬
+║  ├─┤││││ ┬║ ╦├┬┘├─┤├─┘├─┤
+╩═╝┴ ┴┘└┘└─┘╚═╝┴└─┴ ┴┴  ┴ ┴
+
+- 🚀 API: http://127.0.0.1:2024
+- 🎨 Studio UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
+- 📚 API Docs: http://127.0.0.1:2024/docs
+
+This in-memory server is designed for development and testing.
+For production use, please use LangGraph Cloud.
+
+
+2025-06-10T20:50:47.157108Z [info     ] Using langgraph_runtime_inmem  [langgraph_runtime] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:47.168997Z [info     ] Using auth of type=noop        [langgraph_api.auth.middleware] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:47.169872Z [info     ] Loading custom app from ./src/agent/app.py:app [langgraph_api.api] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:47.237855Z [info     ] 4 changes detected             [watchfiles.main] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+WARN: Frontend build directory not found or incomplete at /home/runner/workspace/backend/../frontend/dist. Serving frontend will likely fail.
+2025-06-10T20:50:47.350464Z [info     ] Starting In-Memory runtime with langgraph-api=0.2.48 and in-memory runtime=0.2.1 [langgraph_runtime_inmem.lifespan] api_variant=local_dev langgraph_api_version=0.2.48 langgraph_runtime_inmem_version=0.2.1 thread_name=asyncio_0 version=0.2.48
+2025-06-10T20:50:47.454353Z [info     ] Starting 1 background workers  [langgraph_runtime_inmem.queue] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=asyncio_1
+2025-06-10T20:50:47.588777Z [info     ] 3 changes detected             [watchfiles.main] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:48.212113Z [info     ] Shutting down remote graphs    [langgraph_api.graph] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:48.254770Z [error    ] Traceback (most recent call last):
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/starlette/routing.py", line 692, in lifespan
+    async with self.lifespan_context(app) as maybe_state:
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langgraph_api/server.py", line 148, in combined_lifespan
+    async with lifespan(app):
+               ^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/contextlib.py", line 210, in __aenter__
+    return await anext(self.gen)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langgraph_runtime_inmem/lifespan.py", line 66, in lifespan
+    await graph.collect_graphs_from_env(True)
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langgraph_api/graph.py", line 376, in collect_graphs_from_env
+    graph = await run_in_executor(None, _graph_from_spec, spec)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langchain_core/runnables/config.py", line 616, in run_in_executor
+    return await asyncio.get_running_loop().run_in_executor(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/nix/store/nb21sc3npfc8gvazwnrjxpvb5d48jysx-python3-3.12.7/lib/python3.12/concurrent/futures/thread.py", line 58, in run
+    result = self.fn(*self.args, **self.kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langchain_core/runnables/config.py", line 607, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/langgraph_api/graph.py", line 416, in _graph_from_spec
+    modspec.loader.exec_module(module)
+  File "<frozen importlib._bootstrap_external>", line 995, in exec_module
+  File "<frozen importlib._bootstrap>", line 488, in _call_with_frames_removed
+  File "/home/runner/workspace/backend/src/agent/graph.py", line 3, in <module>
+    from agent.tools_and_schemas import SearchQueryList, Reflection
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/agent/__init__.py", line 1, in <module>
+    from agent.graph import graph
+  File "/home/runner/workspace/.pythonlibs/lib/python3.12/site-packages/agent/graph.py", line 37, in <module>
+    raise ValueError("GEMINI_API_KEY is not set")
+ValueError: GEMINI_API_KEY is not set
+ [uvicorn.error] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:48.255030Z [error    ] Application startup failed. Exiting. [uvicorn.error] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:50:48.340127Z [info     ] 21 changes detected            [watchfiles.main] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
