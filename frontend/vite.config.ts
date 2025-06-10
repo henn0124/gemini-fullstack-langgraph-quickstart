@@ -15,7 +15,7 @@ export default defineConfig({
   server: {
     host: "0.0.0.0",
     port: 5173,
-    allowedHosts: "all",
+    allowedHosts: ["afba2b9f-4c7e-49b2-8f7b-405ec4cf6afe-00-1t83um98r6eyh.spock.replit.dev", ".replit.dev"],
     proxy: {
       // Proxy API requests to the backend server
       "/api": {
