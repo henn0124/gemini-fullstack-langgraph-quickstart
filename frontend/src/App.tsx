@@ -15,17 +15,22 @@ export default function App() {
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const hasFinalizeEventOccurredRef = useRef(false);
 
-  const thread = useStream<{
+  const {
+    stream,
+    startStream,
+    stopStream,
+    isStreaming,
+    messages,
+  } = useStream<{
     messages: Message[];
     initial_search_query_count: number;
     max_research_loops: number;
     reasoning_model: string;
   }>({
-    apiUrl: import.meta.env.DEV
+    baseUrl: import.meta.env.DEV
       ? `${window.location.protocol}//${window.location.hostname}:2024`
       : `${window.location.protocol}//${window.location.hostname}:2024`,
     assistantId: "agent",
-    messagesKey: "messages",
     onFinish: (event: any) => {
       console.log(event);
     },
@@ -83,15 +88,15 @@ export default function App() {
         scrollViewport.scrollTop = scrollViewport.scrollHeight;
       }
     }
-  }, [thread.messages]);
+  }, [messages]);
 
   useEffect(() => {
     if (
       hasFinalizeEventOccurredRef.current &&
-      !thread.isLoading &&
-      thread.messages.length > 0
+      !isStreaming &&
+      messages.length > 0
     ) {
-      const lastMessage = thread.messages[thread.messages.length - 1];
+      const lastMessage = messages[messages.length - 1];
       if (lastMessage && lastMessage.type === "ai" && lastMessage.id) {
         setHistoricalActivities((prev) => ({
           ...prev,
@@ -100,7 +105,7 @@ export default function App() {
       }
       hasFinalizeEventOccurredRef.current = false;
     }
-  }, [thread.messages, thread.isLoading, processedEventsTimeline]);
+  }, [messages, isStreaming, processedEventsTimeline]);
 
   const handleSubmit = useCallback(
     (submittedInputValue: string, effort: string, model: string) => {
@@ -137,39 +142,39 @@ export default function App() {
           id: Date.now().toString(),
         },
       ];
-      thread.submit({
+      startStream({
         messages: newMessages,
         initial_search_query_count: initial_search_query_count,
         max_research_loops: max_research_loops,
         reasoning_model: model,
       });
     },
-    [thread]
+    [startStream]
   );
 
   const handleCancel = useCallback(() => {
-    thread.stop();
+    stopStream();
     window.location.reload();
-  }, [thread]);
+  }, [stopStream]);
 
   return (
     <div className="flex h-screen bg-neutral-800 text-neutral-100 font-sans antialiased">
       <main className="flex-1 flex flex-col overflow-hidden max-w-4xl mx-auto w-full">
         <div
           className={`flex-1 overflow-y-auto ${
-            thread.messages.length === 0 ? "flex" : ""
+            messages.length === 0 ? "flex" : ""
           }`}
         >
-          {thread.messages.length === 0 ? (
+          {messages.length === 0 ? (
             <WelcomeScreen
               handleSubmit={handleSubmit}
-              isLoading={thread.isLoading}
+              isLoading={isStreaming}
               onCancel={handleCancel}
             />
           ) : (
             <ChatMessagesView
-              messages={thread.messages}
-              isLoading={thread.isLoading}
+              messages={messages}
+              isLoading={isStreaming}
               scrollAreaRef={scrollAreaRef}
               onSubmit={handleSubmit}
               onCancel={handleCancel}
