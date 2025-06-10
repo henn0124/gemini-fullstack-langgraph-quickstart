@@ -1,0 +1,46 @@
+Starting both frontend and backend development servers...
+make[1]: Entering directory '/home/runner/workspace'
+make[1]: Entering directory '/home/runner/workspace'
+Starting frontend development server...
+Starting backend development server...
+> frontend@0.0.0 dev
+> vite
+
+INFO:langgraph_api.cli:
+
+        Welcome to
+
+╦  ┌─┐┌┐┌┌─┐╔═╗┬─┐┌─┐┌─┐┬ ┬
+║  ├─┤││││ ┬║ ╦├┬┘├─┤├─┘├─┤
+╩═╝┴ ┴┘└┘└─┘╚═╝┴└─┴ ┴┴  ┴ ┴
+
+- 🚀 API: http://127.0.0.1:2024
+- 🎨 Studio UI: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
+- 📚 API Docs: http://127.0.0.1:2024/docs
+
+This in-memory server is designed for development and testing.
+For production use, please use LangGraph Cloud.
+
+
+
+  VITE v6.3.4  ready in 622 ms
+
+  ➜  Local:   http://localhost:5173/app/
+  ➜  Network: use --host to expose
+2025-06-10T20:57:57.731427Z [info     ] Using langgraph_runtime_inmem  [langgraph_runtime] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:57:57.741977Z [info     ] Using auth of type=noop        [langgraph_api.auth.middleware] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+2025-06-10T20:57:57.742583Z [info     ] Loading custom app from ./src/agent/app.py:app [langgraph_api.api] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=MainThread
+WARN: Frontend build directory not found or incomplete at /home/runner/workspace/backend/../frontend/dist. Serving frontend will likely fail.
+2025-06-10T20:57:57.926766Z [info     ] Starting In-Memory runtime with langgraph-api=0.2.48 and in-memory runtime=0.2.1 [langgraph_runtime_inmem.lifespan] api_variant=local_dev langgraph_api_version=0.2.48 langgraph_runtime_inmem_version=0.2.1 thread_name=asyncio_0 version=0.2.48
+2025-06-10T20:57:57.983152Z [info     ] Starting 1 background workers  [langgraph_runtime_inmem.queue] api_variant=local_dev langgraph_api_version=0.2.48 thread_name=asyncio_1
+2025-06-10T20:57:58.774157Z [info     ] Starting thread TTL sweeper with interval 5 minutes [langgraph_api.thread_ttl] api_variant=local_dev interval_minutes=5 langgraph_api_version=0.2.48 strategy=delete thread_name=asyncio_1
+2025-06-10T20:57:58.774694Z [info     ] Worker stats                   [langgraph_runtime_inmem.queue] active=0 api_variant=local_dev available=1 langgraph_api_version=0.2.48 max=1 thread_name=asyncio_1
+2025-06-10T20:57:58.789758Z [info     ] Registering graph with id 'agent' [langgraph_api.graph] api_variant=local_dev graph_id=agent langgraph_api_version=0.2.48 thread_name=asyncio_1
+Server started in 2.46s
+2025-06-10T20:57:58.833056Z [info     ] Server started in 2.46s        [browser_opener] api_variant=local_dev langgraph_api_version=0.2.48 message='Server started in 2.46s' thread_name='Thread-2 (_open_browser)'
+🎨 Opening Studio in your browser...
+2025-06-10T20:57:58.833386Z [info     ] 🎨 Opening Studio in your browser... [browser_opener] api_variant=local_dev langgraph_api_version=0.2.48 message='🎨 Opening Studio in your browser...' thread_name='Thread-2 (_open_browser)'
+URL: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024
+2025-06-10T20:57:58.833658Z [info     ] URL: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024 [browser_opener] api_variant=local_dev langgraph_api_version=0.2.48 message='URL: https://smith.langchain.com/studio/?baseUrl=http://127.0.0.1:2024' thread_name='Thread-2 (_open_browser)'
+2025-06-10T20:57:59.276501Z [info     ] Queue stats                    [langgraph_runtime_inmem.queue] api_variant=local_dev langgraph_api_version=0.2.48 max_age_secs=None med_age_secs=None n_pending=0 n_running=0 thread_name=asyncio_0
+2025-06-10T20:57:59.278412Z [info     ] Sweeped runs                   [langgraph_runtime_inmem.queue] api_variant=local_dev la
