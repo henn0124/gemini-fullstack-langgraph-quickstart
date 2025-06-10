@@ -22,8 +22,11 @@ args = "make dev"
 [[ports]]
 localPort = 2024
 externalPort = 80
-exposeLocalhost = true
 
 [[ports]]
 localPort = 5173
 externalPort = 5173
+
+[[ports]]
+localPort = 8000
+externalPort = 8000
