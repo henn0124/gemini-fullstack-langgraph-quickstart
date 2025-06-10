@@ -17,12 +17,22 @@ export default defineConfig({
     port: 5173,
     allowedHosts: ["afba2b9f-4c7e-49b2-8f7b-405ec4cf6afe-00-1t83um98r6eyh.spock.replit.dev", ".replit.dev"],
     proxy: {
-      // Proxy API requests to the backend server
-      "/api": {
-        target: "http://127.0.0.1:2024", // LangGraph backend address
+      // Proxy LangGraph API requests to the backend server
+      "/threads": {
+        target: "http://127.0.0.1:2024",
         changeOrigin: true,
-        // Optionally rewrite path if needed (e.g., remove /api prefix if backend doesn't expect it)
-        // rewrite: (path) => path.replace(/^\/api/, ''),
+      },
+      "/runs": {
+        target: "http://127.0.0.1:2024",
+        changeOrigin: true,
+      },
+      "/assistants": {
+        target: "http://127.0.0.1:2024",
+        changeOrigin: true,
+      },
+      "/docs": {
+        target: "http://127.0.0.1:2024",
+        changeOrigin: true,
       },
     },
   },
