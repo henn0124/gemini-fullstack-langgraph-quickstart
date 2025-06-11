@@ -30,9 +30,8 @@ Follow these steps to get the application running locally for development and te
 -   Node.js and npm (or yarn/pnpm)
 -   Python 3.8+
 -   **`GEMINI_API_KEY`**: The backend agent requires a Google Gemini API key.
-    1.  Navigate to the `backend/` directory.
-    2.  Create a file named `.env` by copying the `backend/.env.example` file.
-    3.  Open the `.env` file and add your Gemini API key: `GEMINI_API_KEY="YOUR_ACTUAL_API_KEY"`
+    1.  In your Replit workspace, navigate to the **Tools** pane and select **Secrets**.
+    2.  Click **+ New Secret** and add a secret with key `GEMINI_API_KEY` and your actual Gemini API key as the value.
 
 **2. Install Dependencies:**
 
