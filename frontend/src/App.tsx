@@ -22,7 +22,7 @@ export default function App() {
     reasoning_model: string;
   }>({
     apiUrl: import.meta.env.DEV
-      ? `${window.location.protocol}//${window.location.hostname}:2024`
+      ? `${window.location.protocol}//${window.location.hostname}:${window.location.port}`
       : `${window.location.protocol}//${window.location.hostname}:2024`,
     assistantId: "agent",
     messagesKey: "messages",
